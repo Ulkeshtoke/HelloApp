@@ -1,39 +1,39 @@
 /**
- * HelloApp.java - A Java application that greets multiple users using
- * an enhanced for loop to process command-line arguments.
+ * HelloApp.java - A Java application that greets multiple users and uses
+ * the substring method to handle string formatting.
  *
- * This is the fifth step (UC5) in the HelloApp journey. This version
- * demonstrates the use of the enhanced for loop (for-each) for cleaner
- * array traversal. It manually builds a comma-separated string from
- * the input arguments, or defaults to "World".
+ * This is the sixth step (UC6) in the HelloApp journey. This version builds
+ * on the enhanced for loop but changes the delimiter strategy. It appends
+ * a comma and space to every name and then removes the final trailing
+ * delimiter using the substring() method before printing.
  *
  * @author Ulkesh
- * @version 5.0
+ * @version 6.0
  */
 /**
  * Key Java Concepts Used:
- * 1. Enhanced For Loop (for-each) - Simplified syntax for iterating over arrays.
- * 2. StringBuilder - Efficiently building strings in a loop.
- * 3. Conditional Logic - Handling the default "World" case.
+ * 1. StringBuilder - Used to accumulate names and delimiters efficiently.
+ * 2. Enhanced For Loop - Iterates through all command-line arguments.
+ * 3. substring() Method - Removes the final ", " by calculating the correct length.
  */
 public class HelloApp {
     public static void main(String[] args) {
-        String nameText;
+        String greeting;
         if (args.length > 0) {
-            // Using StringBuilder to efficiently join names
             StringBuilder namesBuilder = new StringBuilder();
+            // Step 5: Append each name followed by a comma and space
             for (String name : args) {
-                // Add a comma and space before every name except the first one
-                if (namesBuilder.length() > 0) {
-                    namesBuilder.append(", ");
-                }
-                namesBuilder.append(name);
+                namesBuilder.append(name).append(", ");
             }
-            nameText = namesBuilder.toString();
+            // Step 6: Use substring() to remove the trailing comma and space (last 2 chars)
+            // namesBuilder.length() - 2 removes the last ", "
+            String names = namesBuilder.substring(0, namesBuilder.length() - 2);
+            greeting = "Hello, " + names + "!";
         } else {
-            nameText = "World";
+            // Step 3: Default value if no arguments provided
+            greeting = "Hello, World!";
         }
-        // Display the final personalized greeting
-        System.out.println("Hello, " + nameText + "!");
+        // Step 7: Print the final greeting
+        System.out.println(greeting);
     }
 }
