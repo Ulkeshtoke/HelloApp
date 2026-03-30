@@ -47,17 +47,15 @@
 
             <!-- Maven Exec Plugin - Run with: mvn exec:java -->
             <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>3.1.1</version>
-                <configuration>
-                    <mainClass>HelloApp</mainClass>
-                    <!-- Default argument if none provided -->
-                    <arguments>
-                        <argument>World</argument>
-                    </arguments>
-                </configuration>
-            </plugin>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>exec-maven-plugin</artifactId>
+    <version>3.1.1</version>
+
+    <configuration>
+        <mainClass>HelloApp</mainClass>
+    </configuration>
+
+</plugin>
 
             <!-- Maven JAR Plugin - Create executable JAR -->
             <plugin>
